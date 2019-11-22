@@ -1,0 +1,8 @@
+<form [formGroup]="reactive">
+    <div class="form-group">
+            <label>Image</label> 
+            <img [src]="url" height="200px" width="250p" >
+            <input type="file"  (change)="onSelectFile($event)" formControlName="img">
+    </div>
+</form>
+

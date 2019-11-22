@@ -1,0 +1,73 @@
+<div class="container col-xs-4 col-xs-offset-4">
+    <h3 class="text-center">Register Form</h3>
+    <form  class="form-group well" [formGroup]='rform' >
+        <label >First Name</label>
+        <input type="text" class="form-control" formControlName="firstname">
+        <div class="alert-danger" *ngIf='rform.controls.firstname.touched && rform.controls.firstname.invalid'>
+            <p  *ngIf='rform.controls.firstname.errors.required'> firstname is requried</p>
+        </div>
+        <label >Last Name</label>
+        <input type="text" class="form-control" formControlName="lastname">
+        <div class="alert-danger" *ngIf='rform.controls.lastname.touched && rform.controls.lastname.invalid'>
+        <p *ngIf='rform.controls.lastname.errors.required'>lastname is required</p>
+       
+        </div>
+
+        <label >Gender :</label>&nbsp;
+        <label class="radio-inline">
+            <input type="radio"   name="gender" value="male"  formControlName="gender">Male
+        </label>
+        <label class="radio-inline">
+                <input type="radio" name="gender"  value="female"  formControlName="gender">Female
+        </label><br>
+        <div class="alert-danger" *ngIf='rform.controls.gender.touched && rform.controls.gender.invalid'>
+            <p *ngIf='rform.controls.gender.errors.required'> select gender</p>
+        </div>
+        <label >Email</label>
+        <input type="text" class="form-control"  formControlName="email">
+        <div class="alert-danger" *ngIf='rform.controls.email.touched && rform.controls.email.invalid'>
+            <p *ngIf='rform.controls.email.errors.required'>email is required</p>
+        </div>
+        <label >User Name</label>
+        <input type="text" class="form-control" formControlName="username">
+        <div class="alert-danger" *ngIf='rform.controls.username.touched && rform.controls.username.invalid'>
+            <p *ngIf='rform.controls.username.errors.required'>username is required</p>
+        </div>
+        <label >Mobile Number</label>
+        <input type="text" class="form-control" formControlName="mobilenumber">
+        <div class="alert-danger" *ngIf='rform.controls.mobilenumber.touched && rform.controls.mobilenumber.invalid'>
+            <p *ngIf='rform.controls.mobilenumber.errors.required'>mobilenumber is required</p>
+        </div>
+        <label >courses</label>
+        <select class="form-control" formControlName="courses">
+            <option value="">Select a Course</option>
+            <option value="c">C</option>
+            <option value="c++">C++</option>
+            <option value="java">Java</option>
+            <option value="angular">Angular</option>
+        </select>
+        <div class="alert-danger" *ngIf='rform.controls.courses.touched && rform.controls.courses.invalid'>
+            <p *ngIf='rform.controls.courses.errors.required'> select a course </p>
+        </div>
+        <label>Addresses:</label>
+        <main formArrayName="addresses" *ngFor="let addr of rform.get('addresses').controls;let i=index">
+                <div formGroupName="{{i}}">
+                    
+          <label>City Name</label>
+        <input type="text" class="form-control" formControlName="city">
+      
+        <label >State Name</label>
+        <input type="text" class="form-control" formControlName="state">
+    
+        <label >Village Name</label>
+        <input type="text" class="form-control" formControlName="village">
+       
+        <label >Pincode Number</label>
+        <input type="text" class="form-control" formControlName="pincode"><br>
+        
+        </div>
+        </main>
+        <a href="" class="btn btn-success " (click)="pos()" >Submit</a>
+    </form>
+</div>
+

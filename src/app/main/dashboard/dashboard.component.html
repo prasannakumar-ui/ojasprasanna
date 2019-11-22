@@ -1,0 +1,119 @@
+<div class="page" >
+    <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                    <a class="navbar-brand" href="#">OJAS</a>
+                  </div>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a (click)='load()' class="btn nav-right"><i class="glyphicon glyphicon-log-in"> Logout</i></a></li>
+                  </ul>
+            
+            </nav>
+           
+          
+         
+                <div class="col-xs-4 col-xs-offset-4">
+                    <button type="button" class="btn btn-info btn-xs" data-toggle="collapse" data-target="#demo">Add Data</button>
+  <div id="demo" class="collapse">
+                        <form [formGroup]='uform'>
+                                <div class="form-group" > 
+                                
+                                  <label >Name</label>
+                                  <input  class="form-control" formControlName='name'>
+                                  <label >Age</label>
+                                  <input  class="form-control"formControlName='age' >
+                                  <label >Salary</label>
+                                  <input  class="form-control" formControlName='salary'>
+                                  <label >Designation</label>
+                                  <input  class="form-control" formControlName='designation'>
+                                 
+                                  <div class="form-group">
+                                    <label>Image</label> 
+                                    <img [src]="url" height="200px" width="250p" >
+                                    <input type="file"  (change)="onSelectFile($event)" formControlName="img"  >
+                            </div>
+                                </div>
+                                
+                                
+                                <button  class="btn btn-primary btn-xs" (click)='su()'>submit</button>&nbsp;
+                            
+                              </form>
+                            </div>
+                   <table class="table table">
+                        <thead>
+                       <tr>
+                           <th>Sl.No</th>
+                           <th>Name</th>
+                           <th>Age</th>
+                           <th>Salary</th>
+                           <th>Designation</th>
+                           <th>Image</th>
+                           <th>action</th>
+                           </tr>
+                         </thead>
+                         <tbody>
+                           <tr *ngFor="let c of fdata,let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{c.name}}</td>
+                            <td>{{c.age}}</td>
+                            <td>{{c.salary|currency:'Rs'}}</td>
+                            <td>{{c.designation}}</td>
+                            <td  style="width:100%" ><img src="{{c.img}}" width="50px"></td>
+                            <td>
+                            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal" (click) ='edi(c)'>edit</button><br>
+                            <!-- <button class="btn btn-success btn-xs" (click) ='edi(c)'>edit</button><br> -->
+                            <button class="btn btn-danger btn-xs" (click) ='des(c)'>delete</button>
+                            </td>
+                            
+                            </tr>
+                        </tbody>
+                   </table>
+                   <div class="container">
+
+ 
+
+                        <div class="modal fade" id="myModal" role="dialog">
+                          <div class="modal-dialog">
+                      
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              
+                              </div>
+                              <div class="modal-body">
+                                
+                                    <form [formGroup]='uform'>
+                                            <div class="form-group" >
+                                         
+                                              <label >Name</label>
+                                              <input  class="form-control" formControlName='name'>
+                                              <label >Age</label>
+                                              <input  class="form-control"formControlName='age' >
+                                              <label >Salary</label>
+                                              <input  class="form-control" formControlName='salary'>
+                                              <label >Designation</label>
+                                              <input  class="form-control" formControlName='designation'>
+                                              <div class="form-group">
+                                                <label>Image</label> 
+                                                <img [src]="url" height="200px" width="250p" >
+                                                <input type="file"  (change)="onSelectFile($event)" formControlName="img"  >
+                                        </div>
+                                            </div>
+                                            
+                                            
+                                            <button  class="btn btn-primary" (click)='pus()' data-dismiss="modal" >Update</button>
+                                          </form>
+                               
+                              </div>
+                              
+                            </div>
+                            
+                          </div>
+                        </div>
+                  
+
+                        
+                </div>
+         
+           
+                       
+</div>

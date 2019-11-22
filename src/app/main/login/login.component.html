@@ -1,0 +1,26 @@
+<div class="container col-xs-4 col-xs-offset-4">
+    <h3 class="text-center">Login</h3>
+    <form class="form-group  well" [formGroup]='lform'>
+        <label f>Username</label>
+    <input type="text" class="form-control" formControlName='username'>
+    <div class="alert alert-danger" *ngIf='lform.controls.username.touched && lform.controls.username.invalid'>
+    <p  *ngIf='lform.controls.username.errors.required'> username is requried</p>
+    <p  *ngIf='lform.controls.username.errors.minlength'> username atlest 3</p>
+</div>
+    <label for="">Password</label>
+    <input type="password" class="form-control" formControlName='password' ><br>
+    <div class="alert alert-danger" *ngIf='lform.controls.password.touched && lform.controls.password.invalid'>
+            <p  *ngIf='lform.controls.username.errors.required'> password is requried</p>
+        <p  *ngIf='lform.controls.password.errors.minlength'> password atlest 3</p>
+    </div>
+    <label for="">Confirm Password</label>
+    <input type="password" p class="form-control" formControlName='password'><br>
+    <div class="alert alert-danger" *ngIf='lform.controls.password.touched && lform.controls.password.invalid'>
+            <p  *ngIf='lform.controls.username.errors.required'> password is requried</p>
+        <p  *ngIf='lform.controls.password.errors.minlength'> password atlest 3</p>
+    </div>
+    <a (click)='login()' class="btn btn-primary"  >Login</a>
+    
+    </form>
+    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               -->
